@@ -1,0 +1,277 @@
+/* ===== KEYFRAMES DEFINITIONS ===== */
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Slide up animation */
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Slide in from left */
+@keyframes slideInLeft {
+  from { transform: translateX(-50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+  from { transform: translateX(50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Scale animation */
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-15px); }
+  60% { transform: translateY(-7px); }
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Gradient animation */
+@keyframes gradientBg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== PAGE ELEMENTS ANIMATIONS ===== */
+
+/* Initial page load animation */
+body {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Header animation */
+header {
+  animation: slideInLeft 0.5s ease-out;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+header:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Scrum Playbook title animation */
+header .font-bold {
+  animation: pulse 5s infinite;
+}
+
+/* Navigation links animation */
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 50%;
+  background-color: #0ea5e9; /* Tailwind sky-500 */
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-link.active {
+  border-color: #0ea5e9 !important;
+}
+
+/* Dropdown menus animation */
+.group-hover\:opacity-100 {
+  transform-origin: top center;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.group:hover .group-hover\:opacity-100 {
+  transform: translateY(5px);
+}
+
+/* Mobile menu toggle animation */
+#mobile-menu-button svg {
+  transition: transform 0.3s ease;
+}
+
+#mobile-menu-button:hover svg {
+  transform: rotate(90deg);
+}
+
+#mobile-menu {
+  transition: all 0.4s ease-in-out;
+}
+
+/* ===== CONTENT ANIMATIONS ===== */
+
+/* Main section animations */
+main section {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+/* Headings animations */
+h1 {
+  animation: slideInLeft 0.7s ease-out forwards;
+}
+
+h2 {
+  position: relative;
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -5px;
+  left: 0;
+  background-color: #0ea5e9;
+  animation: slideInRight 1s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+h3 {
+  animation: slideInLeft 0.5s ease-out forwards;
+}
+
+/* Paragraphs animation */
+p {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+/* List items staggered animation */
+ul li, ol li {
+  opacity: 0;
+  animation: slideInLeft 0.5s ease-out forwards;
+}
+
+ul li:nth-child(1), ol li:nth-child(1) { animation-delay: 0.1s; }
+ul li:nth-child(2), ol li:nth-child(2) { animation-delay: 0.2s; }
+ul li:nth-child(3), ol li:nth-child(3) { animation-delay: 0.3s; }
+ul li:nth-child(4), ol li:nth-child(4) { animation-delay: 0.4s; }
+ul li:nth-child(5), ol li:nth-child(5) { animation-delay: 0.5s; }
+ul li:nth-child(n+6), ol li:nth-child(n+6) { animation-delay: 0.6s; }
+
+/* Images animation */
+img {
+  opacity: 0;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: scaleIn 0.7s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Tables animation */
+table {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+tr {
+  transition: background-color 0.3s ease;
+}
+
+tr:hover {
+  background-color: rgba(14, 165, 233, 0.05);
+}
+
+/* Code blocks animation */
+pre, code {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+  transition: box-shadow 0.3s ease;
+}
+
+pre:hover, code:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Blockquotes animation */
+blockquote {
+  opacity: 0;
+  animation: slideInRight 0.7s ease-out forwards;
+  animation-delay: 0.3s;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+blockquote:hover {
+  border-color: #0ea5e9;
+  transform: translateX(5px);
+}
+
+/* ===== SCROLL ANIMATION CLASSES ===== */
+
+.scroll-animate {
+  opacity: 0;
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+}
+
+.scroll-fadeIn.visible {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.scroll-slideUp.visible {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.scroll-slideInLeft.visible {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.scroll-slideInRight.visible {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+/* ===== UTILITY ANIMATION CLASSES ===== */
+
+.animate-fadeIn { animation: fadeIn 1s ease forwards; }
+.animate-slideUp { animation: slideUp 1s ease forwards; }
+.animate-slideInLeft { animation: slideInLeft 1s ease forwards; }
+.animate-slideInRight { animation: slideInRight 1s ease forwards; }
+.animate-scaleIn { animation: scaleIn 1s ease forwards; }
+.animate-bounce { animation: bounce 1s ease infinite; }
+.animate-pulse { animation: pulse 2s infinite; }
+
+/* Animation delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-800 { animation-delay: 0.8s; }
+.delay-1000 { animation-delay: 1s; }
