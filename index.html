@@ -407,46 +407,6 @@
             được tổ chức vào đầu mỗi Sprint để khởi động chu kỳ làm việc mới của
             nhóm Agile.
           </p>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-            <div
-              class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-lg p-4 border-l-4 border-teal-500"
-            >
-              <h4 class="font-semibold text-slate-800 mb-1">
-                Events (Sự kiện)
-              </h4>
-              <p class="text-slate-600 text-sm">
-                Sprint, Sprint Planning, Daily Scrum, Sprint Review, Sprint
-                Retrospective
-              </p>
-            </div>
-            <div
-              class="bg-gradient-to-br from-cyan-50 to-amber-50 rounded-lg p-4 border-l-4 border-cyan-500"
-            >
-              <h4 class="font-semibold text-slate-800 mb-1">
-                Artifacts (Vật tạo tác)
-              </h4>
-              <p class="text-slate-600 text-sm">
-                Product Backlog, Sprint Backlog, Increment
-              </p>
-            </div>
-            <div
-              class="bg-gradient-to-br from-amber-50 to-teal-50 rounded-lg p-4 border-l-4 border-amber-500"
-            >
-              <h4 class="font-semibold text-slate-800 mb-1">Roles (Vai trò)</h4>
-              <p class="text-slate-600 text-sm">
-                Product Owner, Scrum Master, Development Team
-              </p>
-            </div>
-          </div>
-          <!-- Hình ảnh Scrum Member -->
-            <div class="flex justify-center mb-6"></div>
-            <img
-              src="picture/scrum_member.png"
-              alt="Scrum Member"
-              class="w-auto max-w-full h-auto mx-auto object-contain mb-2"
-              style="max-height: 400px;"
-            />
-            </div>
           <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
             <li>
               Mỗi Sprint là một giai đoạn thời gian cố định, trong đó mọi công
@@ -461,6 +421,16 @@
               phù hợp, tăng khả năng thành công cho nhóm.
             </li>
           </ul>
+          <!-- Hình ảnh Scrum Member -->
+            <div class="flex justify-center mb-6"></div>
+            <img
+              src="picture/scrum_member.png"
+              alt="Scrum Member"
+              class="w-auto max-w-full h-auto mx-auto object-contain mb-2"
+              style="max-height: 600px;"
+            />
+            </div>
+
         </div>
       </section>
       <!-- Section 3: Sprint Planning Objectives -->
@@ -1018,73 +988,469 @@
               </div>
             </div>
           </div>
+          </div>
+        </div>
+      </section>
+      <section id="product-backlog-example" class="py-16 bg-gradient-to-r from-slate-50 to-blue-50 scroll-animate scroll-fadeIn">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="mb-10 text-center">
+            <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">
+              Ví Dụ Thực Tế: Product Backlog
+            </h2>
+            <p class="mt-4 text-xl text-slate-600">
+              Hành trình phát triển ứng dụng FinTrack - Quản lý tài chính cá nhân
+            </p>
+          </div>
 
-          <!-- Example -->
-          <div id="product-backlog-example" class="mb-8 scroll-animate scroll-slideUp">
-            <h2 class="text-3xl font-extrabold text-slate-900 mb-8">Example</h2>
+          <!-- Giới thiệu sản phẩm -->
+          <div class="bg-white rounded-xl shadow-md p-8 mb-10">
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 flex items-center">
+              <span class="inline-flex items-center justify-center mr-3 bg-blue-100 text-blue-600 h-10 w-10 rounded-full">📱</span>
+              Giới thiệu sản phẩm
+            </h3>
             
-            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl shadow-sm p-8 border border-blue-100">
-              <h3 class="text-2xl font-bold text-slate-800 mb-6">
-                🧠 Ví dụ: Product Backlog Refinement
-              </h3>
+            <p class="text-slate-700 mb-6">
+              <strong>FinTrack</strong> là một ứng dụng di động giúp người dùng theo dõi chi tiêu, lập ngân sách và phân tích tài chính cá nhân. Sản phẩm này nhắm đến người trưởng thành đã đi làm trong độ tuổi 25-40 muốn quản lý tài chính hiệu quả hơn.
+            </p>
+            
+            <p class="text-slate-700">
+              Nhóm Scrum gồm 1 Product Owner, 1 Scrum Master và 5 Developers sẽ phát triển sản phẩm này trong khung thời gian 6 tháng, với các Sprint kéo dài 2 tuần.
+            </p>
+          </div>
+          
+          <!-- WHAT: Product Goal & Product Backlog -->
+          <div class="bg-white rounded-xl shadow-md p-8 mb-10">
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 flex items-center">
+              <span class="inline-flex items-center justify-center mr-3 bg-purple-100 text-purple-600 h-10 w-10 rounded-full">🎯</span>
+              WHAT: Mục tiêu sản phẩm và Product Backlog ban đầu
+            </h3>
+            
+            <div class="mb-8">
+              <h4 class="text-xl font-semibold text-slate-800 mb-4">Product Goal (Cam kết):</h4>
               
-              <div class="space-y-10">
-                <div>
-                  <h4 class="text-xl font-semibold text-slate-800 mb-4">Tình huống:</h4>
-                  
-                  <p class="text-slate-700">
-                    Nhóm Scrum đang phát triển một bảng điều khiển SaaS cho phân tích dữ liệu doanh nghiệp. Một trong các PBI có độ ưu tiên cao là:
-                  </p>
-                  
-                  <div class="bg-white rounded-lg p-4 my-4 border border-slate-200 shadow-sm">
-                    <p class="italic text-slate-700">
-                      "Là một nhà quản lý, tôi muốn xuất báo cáo ở nhiều định dạng tệp khác nhau (PDF, XLSX, CSV) để phục vụ các buổi trình bày cho các bên liên quan."
-                    </p>
+              <div class="bg-purple-50 border-l-4 border-purple-500 p-5 rounded-r-lg">
+                <p class="text-slate-800 font-medium">
+                  "Tạo ra ứng dụng giúp người dùng tiết kiệm ít nhất 15% thu nhập hàng tháng thông qua việc theo dõi chi tiêu và lập ngân sách thông minh, đạt 100,000 người dùng thường xuyên sau 6 tháng ra mắt."
+                </p>
+              </div>
+              
+              <p class="text-slate-700 mt-4">
+                Product Goal này đặt ra mục tiêu rõ ràng, đo lường được (15% tiết kiệm, 100,000 người dùng) và định hướng cho toàn bộ quá trình phát triển sản phẩm.
+              </p>
+            </div>
+            
+            <div>
+              <h4 class="text-xl font-semibold text-slate-800 mb-4">Product Backlog ban đầu:</h4>
+              
+              <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-slate-200">
+                  <thead class="bg-slate-50">
+                    <tr>
+                      <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Thứ tự ưu tiên</th>
+                      <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Mô tả PBI</th>
+                      <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Giá trị</th>
+                      <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Ước lượng</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-slate-200">
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">1</td>
+                      <td class="px-6 py-4 text-sm text-slate-700">Đăng ký và đăng nhập tài khoản người dùng</td>
+                      <td class="px-6 py-4 text-sm text-slate-700">Cao</td>
+                      <td class="px-6 py-4 text-sm text-slate-700">8</td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">2</td>
+                      <td class="px-6 py-4 text-sm text-slate-700">Nhập và phân loại giao dịch chi tiêu</td>
+                      <td class="px-6 py-4 text-sm text-slate-700">Cao</td>
+                      <td class="px-6 py-4 text-sm text-slate-700">13</td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">3</td>
+                      <td class="px-6 py-4 text-sm text-slate-700">Tạo và quản lý ngân sách hàng tháng</td>
+                      <td class="px-6 py-4 text-sm text-slate-700">Cao</td>
+                      <td class="px-6 py-4 text-sm text-slate-700">8</td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">4</td>
+                      <td class="px-6 py-4 text-sm text-slate-700">Xem báo cáo thống kê chi tiêu</td>
+                      <td class="px-6 py-4 text-sm text-slate-700">Trung bình</td>
+                      <td class="px-6 py-4 text-sm text-slate-700">13</td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">5</td>
+                      <td class="px-6 py-4 text-sm text-slate-700">Tích hợp với ngân hàng để tự động cập nhật giao dịch</td>
+                      <td class="px-6 py-4 text-sm text-slate-700">Trung bình</td>
+                      <td class="px-6 py-4 text-sm text-slate-700">21</td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">6</td>
+                      <td class="px-6 py-4 text-sm text-slate-700">Đặt mục tiêu tiết kiệm và theo dõi tiến trình</td>
+                      <td class="px-6 py-4 text-sm text-slate-700">Trung bình</td>
+                      <td class="px-6 py-4 text-sm text-slate-700">8</td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">7</td>
+                      <td class="px-6 py-4 text-sm text-slate-700">Gợi ý thông minh về cách tiết kiệm</td>
+                      <td class="px-6 py-4 text-sm text-slate-700">Thấp</td>
+                      <td class="px-6 py-4 text-sm text-slate-700">13</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+              <p class="text-slate-700 mt-4 italic">
+                Ghi chú: Product Backlog trên chỉ bao gồm các PBI ưu tiên cao nhất. Trong thực tế, backlog sẽ chứa nhiều mục hơn.
+              </p>
+            </div>
+          </div>
+          
+          <!-- WHO: Trách nhiệm các vai trò -->
+          <div class="bg-white rounded-xl shadow-md p-8 mb-10">
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 flex items-center">
+              <span class="inline-flex items-center justify-center mr-3 bg-green-100 text-green-600 h-10 w-10 rounded-full">👥</span>
+              WHO: Trách nhiệm của các vai trò
+            </h3>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="bg-green-50 p-6 rounded-lg">
+                <h4 class="text-lg font-semibold text-slate-800 mb-3">Product Owner</h4>
+                <ul class="text-slate-700 space-y-2">
+                  <li class="flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    Phỏng vấn người dùng tiềm năng để hiểu nhu cầu thực tế
+                  </li>
+                  <li class="flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    Xác định Product Goal dựa trên mục tiêu kinh doanh
+                  </li>
+                  <li class="flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    Tạo và sắp xếp thứ tự Product Backlog
+                  </li>
+                  <li class="flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    Viết và làm rõ các PBI
+                  </li>
+                </ul>
+              </div>
+              
+              <div class="bg-blue-50 p-6 rounded-lg">
+                <h4 class="text-lg font-semibold text-slate-800 mb-3">Developers</h4>
+                <ul class="text-slate-700 space-y-2">
+                  <li class="flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    Đánh giá tính khả thi kỹ thuật của các PBI
+                  </li>
+                  <li class="flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    Ước lượng công sức cần thiết (story points)
+                  </li>
+                  <li class="flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    Đề xuất các giải pháp kỹ thuật
+                  </li>
+                  <li class="flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    Phát hiện rủi ro và phụ thuộc kỹ thuật
+                  </li>
+                </ul>
+              </div>
+              
+              <div class="bg-amber-50 p-6 rounded-lg">
+                <h4 class="text-lg font-semibold text-slate-800 mb-3">Scrum Master</h4>
+                <ul class="text-slate-700 space-y-2">
+                  <li class="flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-500 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    Hướng dẫn quy trình Refinement
+                  </li>
+                  <li class="flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-500 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    Đảm bảo PBI có kích thước phù hợp
+                  </li>
+                  <li class="flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-500 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    Loại bỏ trở ngại trong quá trình quản lý backlog
+                  </li>
+                  <li class="flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-500 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    Thúc đẩy giao tiếp hiệu quả
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="mt-8 bg-slate-50 p-6 rounded-lg">
+              <h4 class="text-lg font-semibold text-slate-800 mb-3">Ví dụ hợp tác trong thực tế:</h4>
+              <p class="text-slate-700 mb-4">
+                Đối với PBI "Tích hợp với ngân hàng để tự động cập nhật giao dịch", nhóm đã làm việc như sau:
+              </p>
+              <ol class="text-slate-700 space-y-2 list-decimal list-inside">
+                <li><strong>Product Owner</strong> nghiên cứu các ngân hàng phổ biến nhất và nhu cầu tích hợp từ người dùng</li>
+                <li><strong>Developers</strong> đánh giá API của các ngân hàng và ước tính công sức là 21 story points</li>
+                <li><strong>Scrum Master</strong> gợi ý chia nhỏ PBI theo từng ngân hàng để giảm rủi ro</li>
+                <li><strong>Product Owner</strong> quyết định ưu tiên hóa theo thị phần của ngân hàng</li>
+              </ol>
+            </div>
+          </div>
+          
+          <!-- WHEN: Vòng đời của Product Backlog -->
+          <div class="bg-white rounded-xl shadow-md p-8 mb-10">
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 flex items-center">
+              <span class="inline-flex items-center justify-center mr-3 bg-red-100 text-red-600 h-10 w-10 rounded-full">⏱️</span>
+              WHEN: Vòng đời của Product Backlog
+            </h3>
+            
+            <div class="relative">
+              <!-- Timeline -->
+              <div class="hidden md:block absolute left-1/2 h-full w-0.5 bg-slate-200 transform -translate-x-1/2"></div>
+              
+              <!-- Timeline items -->
+              <div class="space-y-12">
+                <!-- Creation -->
+                <div class="relative">
+                  <div class="hidden md:block absolute left-1/2 -ml-3 mt-6 h-6 w-6 rounded-full border-4 border-white bg-red-500"></div>
+                  <div class="md:flex items-center">
+                    <div class="md:w-1/2 pr-8 pb-10 md:text-right">
+                      <h4 class="text-xl font-semibold text-slate-800 mb-2">Tạo lập ban đầu</h4>
+                      <p class="text-slate-700">
+                        Trước khi Sprint đầu tiên bắt đầu, Product Owner đã phỏng vấn 15 người dùng tiềm năng, phân tích đối thủ cạnh tranh, và tham vấn bộ phận kinh doanh. Product Backlog ban đầu bao gồm 25 PBI, được sắp xếp theo mức độ ưu tiên.
+                      </p>
+                    </div>
+                    <div class="md:w-1/2 pl-8 md:pt-0 pt-4">
+                      <span class="bg-red-100 text-red-700 text-sm font-medium px-3 py-1 rounded-full">Trước Sprint 1</span>
+                    </div>
                   </div>
                 </div>
                 
-                <hr class="border-slate-200">
-                
-                <div>
-                  <h4 class="text-xl font-semibold text-slate-800 mb-4 flex items-center">
-                    <span class="inline-flex items-center justify-center mr-3 bg-purple-100 text-purple-500 h-8 w-8 rounded-full">💬</span>
-                    Thông tin từ khách hàng:
-                  </h4>
-                  
-                  <p class="text-slate-700 mb-4">
-                    Trong một buổi khám phá nhu cầu, một khách hàng lớn bày tỏ mối quan ngại:
-                  </p>
-                  
-                  <blockquote class="bg-white rounded-lg p-6 my-4 border-l-4 border-purple-500 shadow-sm">
-                    <p class="italic text-slate-700">
-                      "Việc hỗ trợ và duy trì tính năng xuất XLSX quá tốn kém và hiếm khi được sử dụng trong quy trình hiện tại của chúng tôi. CSV và PDF đáp ứng 95% nhu cầu rồi."
-                    </p>
-                  </blockquote>
+                <!-- Use during Sprint Planning -->
+                <div class="relative">
+                  <div class="hidden md:block absolute left-1/2 -ml-3 mt-6 h-6 w-6 rounded-full border-4 border-white bg-blue-500"></div>
+                  <div class="md:flex items-center">
+                    <div class="md:w-1/2 pr-8 md:text-right order-1 md:order-1">
+                      <span class="bg-blue-100 text-blue-700 text-sm font-medium px-3 py-1 rounded-full">Sprint Planning</span>
+                    </div>
+                    <div class="md:w-1/2 pl-8 pb-10 order-2 md:order-2 md:pt-0 pt-4">
+                      <h4 class="text-xl font-semibold text-slate-800 mb-2">Sử dụng trong Sprint Planning</h4>
+                      <p class="text-slate-700">
+                        Trong buổi Sprint Planning, nhóm đã chọn các PBI từ đầu Product Backlog: "Đăng ký và đăng nhập" và "Nhập và phân loại giao dịch chi tiêu". Những PBI này đã được làm rõ và ước lượng trước đó, giúp cho việc lập kế hoạch diễn ra hiệu quả.
+                      </p>
+                    </div>
+                  </div>
                 </div>
                 
-                <hr class="border-slate-200">
+                <!-- Refinement during Sprint -->
+                <div class="relative">
+                  <div class="hidden md:block absolute left-1/2 -ml-3 mt-6 h-6 w-6 rounded-full border-4 border-white bg-green-500"></div>
+                  <div class="md:flex items-center">
+                    <div class="md:w-1/2 pr-8 pb-10 md:text-right">
+                      <h4 class="text-xl font-semibold text-slate-800 mb-2">Refinement trong Sprint</h4>
+                      <p class="text-slate-700">
+                        Vào ngày thứ 5 của Sprint, nhóm tổ chức buổi Refinement để chuẩn bị cho Sprint tiếp theo. Trong buổi này, họ làm rõ PBI "Tạo và quản lý ngân sách hàng tháng" và chia nhỏ thành 3 phần: tạo mẫu ngân sách, theo dõi ngân sách, và thông báo khi vượt quá giới hạn.
+                      </p>
+                    </div>
+                    <div class="md:w-1/2 pl-8 md:pt-0 pt-4">
+                      <span class="bg-green-100 text-green-700 text-sm font-medium px-3 py-1 rounded-full">Trong Sprint 1</span>
+                    </div>
+                  </div>
+                </div>
                 
-                <div>
-                  <h4 class="text-xl font-semibold text-slate-800 mb-4 flex items-center">
-                    <span class="inline-flex items-center justify-center mr-3 bg-teal-100 text-teal-500 h-8 w-8 rounded-full">🔧</span>
-                    Quy trình Refinement:
-                  </h4>
-                  
-                  <ul class="list-disc list-inside text-slate-700 space-y-4">
-                    <li><strong>Product Owner</strong> đánh giá lại giá trị mang lại và chi phí bảo trì của tính năng xuất XLSX.</li>
-                    <li><strong>Developers</strong> chỉ ra các độ phức tạp ẩn: phụ thuộc vào thư viện bên thứ ba có chi phí cao, cần kiểm thử nhiều trường hợp đặc biệt, và vấn đề tương thích nền tảng.</li>
-                    <li>
-                      Nhóm <strong>chia nhỏ PBI</strong> thành:
-                      <ol class="list-decimal list-inside ml-6 mt-2 space-y-2">
-                        <li>Xuất dưới dạng PDF</li>
-                        <li>Xuất dưới dạng CSV</li>
-                        <li>Xuất dưới dạng XLSX (đánh dấu để thảo luận hoặc loại bỏ sau)</li>
-                      </ol>
-                    </li>
-                  </ul>
+                <!-- Update after Sprint Review -->
+                <div class="relative">
+                  <div class="hidden md:block absolute left-1/2 -ml-3 mt-6 h-6 w-6 rounded-full border-4 border-white bg-purple-500"></div>
+                  <div class="md:flex items-center">
+                    <div class="md:w-1/2 pr-8 md:text-right order-1 md:order-1">
+                      <span class="bg-purple-100 text-purple-700 text-sm font-medium px-3 py-1 rounded-full">Sau Sprint Review</span>
+                    </div>
+                    <div class="md:w-1/2 pl-8 pb-10 order-2 md:order-2 md:pt-0 pt-4">
+                      <h4 class="text-xl font-semibold text-slate-800 mb-2">Cập nhật sau Sprint Review</h4>
+                      <p class="text-slate-700">
+                        Trong Sprint Review, các bên liên quan đề xuất thêm tính năng "Nhắc nhở thanh toán hóa đơn". Product Owner đánh giá giá trị của tính năng này và thêm vào Product Backlog với mức ưu tiên trung bình. Một số PBI cũng được điều chỉnh dựa trên phản hồi người dùng.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Continuous update -->
+                <div class="relative">
+                  <div class="hidden md:block absolute left-1/2 -ml-3 mt-6 h-6 w-6 rounded-full border-4 border-white bg-amber-500"></div>
+                  <div class="md:flex items-center">
+                    <div class="md:w-1/2 pr-8 pb-10 md:text-right">
+                      <h4 class="text-xl font-semibold text-slate-800 mb-2">Cập nhật liên tục</h4>
+                      <p class="text-slate-700">
+                        Sau khi một nghiên cứu thị trường mới cho thấy nhu cầu cao về tính năng "Phân tích xu hướng chi tiêu", Product Owner đã trao đổi với nhóm và thêm tính năng này vào Product Backlog, đồng thời điều chỉnh ưu tiên của một số PBI khác để phản ánh thông tin mới này.
+                      </p>
+                    </div>
+                    <div class="md:w-1/2 pl-8 md:pt-0 pt-4">
+                      <span class="bg-amber-100 text-amber-700 text-sm font-medium px-3 py-1 rounded-full">Bất kỳ thời điểm nào</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+          
+          <!-- Refinement Process -->
+          <div class="bg-white rounded-xl shadow-md p-8 mb-10">
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 flex items-center">
+              <span class="inline-flex items-center justify-center mr-3 bg-indigo-100 text-indigo-600 h-10 w-10 rounded-full">🔍</span>
+              Refinement: Cải thiện Product Backlog
+            </h3>
+            
+            <p class="text-slate-700 mb-6">
+              Sau 3 Sprint, nhóm đã nhận ra rằng PBI "Tích hợp với ngân hàng để tự động cập nhật giao dịch" (21 points) quá lớn và phức tạp. Trong buổi Refinement, họ đã cải thiện PBI này như sau:
+            </p>
+            
+            <div class="bg-slate-50 p-6 rounded-lg mb-8">
+              <h4 class="text-lg font-semibold text-slate-800 mb-4">PBI ban đầu:</h4>
+              <div class="bg-white p-4 rounded border border-slate-200 mb-6">
+                <p class="font-medium text-slate-800">Tích hợp với ngân hàng để tự động cập nhật giao dịch</p>
+                <p class="text-slate-600 mt-2">Người dùng muốn kết nối tài khoản ngân hàng của họ với ứng dụng để tự động cập nhật giao dịch mà không cần nhập thủ công.</p>
+                <div class="mt-3 flex items-center text-sm">
+                  <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded mr-2">21 points</span>
+                  <span class="bg-amber-100 text-amber-800 px-2 py-1 rounded">Trung bình</span>
+                </div>
+              </div>
+              
+              <h4 class="text-lg font-semibold text-slate-800 mb-4">Sau khi Refinement:</h4>
+              <div class="space-y-4">
+                <div class="bg-white p-4 rounded border border-slate-200">
+                  <p class="font-medium text-slate-800">1. Kết nối với Ngân hàng A thông qua API</p>
+                  <p class="text-slate-600 mt-2">Cho phép người dùng kết nối tài khoản Ngân hàng A và tự động đồng bộ giao dịch.</p>
+                  <div class="mt-3 flex items-center text-sm">
+                    <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded mr-2">8 points</span>
+                    <span class="bg-green-100 text-green-800 px-2 py-1 rounded">Cao</span>
+                  </div>
+                </div>
+                
+                <div class="bg-white p-4 rounded border border-slate-200">
+                  <p class="font-medium text-slate-800">2. Kết nối với Ngân hàng B thông qua API</p>
+                  <p class="text-slate-600 mt-2">Cho phép người dùng kết nối tài khoản Ngân hàng B và tự động đồng bộ giao dịch.</p>
+                  <div class="mt-3 flex items-center text-sm">
+                    <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded mr-2">5 points</span>
+                    <span class="bg-amber-100 text-amber-800 px-2 py-1 rounded">Trung bình</span>
+                  </div>
+                </div>
+                
+                <div class="bg-white p-4 rounded border border-slate-200">
+                  <p class="font-medium text-slate-800">3. Xây dựng hệ thống phân loại giao dịch tự động</p>
+                  <p class="text-slate-600 mt-2">Tự động phân loại giao dịch được đồng bộ từ ngân hàng dựa trên mẫu và quy tắc.</p>
+                  <div class="mt-3 flex items-center text-sm">
+                    <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded mr-2">8 points</span>
+                    <span class="bg-amber-100 text-amber-800 px-2 py-1 rounded">Trung bình</span>
+                  </div>
+                </div>
+                
+                <div class="bg-white p-4 rounded border border-slate-200">
+                  <p class="font-medium text-slate-800">4. Quản lý lỗi và đồng bộ offline</p>
+                  <p class="text-slate-600 mt-2">Xử lý lỗi kết nối API và cho phép đồng bộ sau khi mất kết nối.</p>
+                  <div class="mt-3 flex items-center text-sm">
+                    <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded mr-2">5 points</span>
+                    <span class="bg-red-100 text-red-800 px-2 py-1 rounded">Thấp</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-emerald-50 p-6 rounded-lg">
+              <h4 class="text-lg font-semibold text-slate-800 mb-3">Lợi ích của Refinement:</h4>
+              <ul class="text-slate-700 space-y-2">
+                <li class="flex">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-600 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <span>Các PBI có kích thước nhỏ hơn, dễ ước lượng và hoàn thành trong một Sprint</span>
+                </li>
+                <li class="flex">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-600 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <span>Giúp Product Owner sắp xếp ưu tiên chính xác hơn (ưu tiên Ngân hàng A trước)</span>
+                </li>
+                <li class="flex">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-600 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <span>Giảm rủi ro bằng cách tách biệt các phụ thuộc kỹ thuật</span>
+                </li>
+                <li class="flex">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-600 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                  <span>Tạo điều kiện bàn giao sớm và thường xuyên của tính năng có giá trị</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Summary -->
+          <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl shadow-md p-8">
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">Kết luận</h3>
+            
+            <p class="text-slate-700 mb-6">
+              Qua ví dụ về ứng dụng FinTrack, chúng ta thấy rằng Product Backlog là một công cụ động, liên tục phát triển theo thời gian. Từ việc tạo lập ban đầu với Product Goal rõ ràng, đến việc liên tục refinement, Product Backlog đã giúp nhóm:
+            </p>
+            
+            <ul class="text-slate-700 space-y-3 mb-6">
+              <li class="flex">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Duy trì tầm nhìn rõ ràng về sản phẩm thông qua Product Goal</span>
+              </li>
+              <li class="flex">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Tạo ra sự minh bạch về công việc cần làm và ưu tiên của chúng</span>
+              </li>
+              <li class="flex">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Thích ứng với phản hồi và thông tin mới từ người dùng và thị trường</span>
+              </li>
+              <li class="flex">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Phân phối giá trị dần dần thông qua việc chia nhỏ PBI</span>
+              </li>
+              <li class="flex">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Làm rõ trách nhiệm giữa các vai trò khác nhau trong Scrum Team</span>
+              </li>
+            </ul>
+            
+            <p class="text-slate-700 italic">
+              Một Product Backlog hiệu quả là nền tảng cho sự thành công của dự án Scrum, giúp nhóm tập trung vào việc tạo ra giá trị thực sự cho người dùng và doanh nghiệp.
+            </p>
           </div>
         </div>
       </section>
@@ -1100,52 +1466,7 @@
     </footer>
 
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        // --- Data ---
-        const pbiData = [
-          {
-            title: 'Epic (Sử thi)',
-            content:
-              'Một khối công việc lớn, mô tả một chức năng chính. Quá lớn để hoàn thành trong một Sprint.',
-            example:
-              'Ví dụ: "Quản lý hệ thống nội dung (CMS) cho website marketing."',
-          },
-          {
-            title: 'User Story',
-            content:
-              'Mô tả ngắn về một tính năng từ góc độ người dùng cuối. Thường theo định dạng: "Là một [vai trò], tôi muốn [hành động] để [đạt được giá trị]".',
-            example:
-              'Ví dụ: "Là người mua hàng, tôi muốn xem lại giỏ hàng trước khi thanh toán."',
-          },
-          {
-            title: 'Task (Nhiệm vụ)',
-            content:
-              'Hành động kỹ thuật cụ thể cần làm để hoàn thành một User Story. Developers thường chia nhỏ User Story thành các Task.',
-            example:
-              'Ví dụ: "Thiết kế UI trang giỏ hàng", "Lập trình API thêm/xóa sản phẩm."',
-          },
-          {
-            title: 'Bug (Lỗi)',
-            content:
-              'Các lỗi được phát hiện trong sản phẩm. Chúng được đưa vào Backlog, ưu tiên và xử lý như các tính năng mới.',
-            example:
-              'Ví dụ: "Nút thanh toán không hoạt động trên trình duyệt Safari."',
-          },
-          {
-            title: 'Technical Debt',
-            content:
-              'Nợ kỹ thuật là công việc cần làm lại do trước đó đã chọn giải pháp nhanh thay vì giải pháp tốt hơn. Quản lý nợ kỹ thuật là dấu hiệu của một nhóm trưởng thành.',
-            example:
-              'Ví dụ: "Tái cấu trúc (refactor) module thanh toán để cải thiện hiệu suất."',
-          },
-          {
-            title: 'Knowledge Acquisition',
-            content:
-              'Hoạt động nghiên cứu để có đủ thông tin trước khi phát triển một tính năng.',
-            example:
-              'Ví dụ: "Nghiên cứu và so sánh 3 cổng thanh toán khác nhau."',
-          },
-        ];
+      
 
         const pitfallsData = [
           {
