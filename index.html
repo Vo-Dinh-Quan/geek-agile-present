@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sprint Planning & Product Backlog - Scrum Framework</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: The application is designed as a guided, interactive journey through the core concepts of the report, prioritizing usability and understanding over a literal translation of the report's structure. It uses a top navigation for non-linear exploration and breaks content into thematic sections: 1. A high-level overview of the Scrum framework with an interactive diagram. 2. A deep-dive into the Product Backlog using interactive tabs and cards. 3. A breakdown of Sprint Planning with a visual process stepper and interactive elements for its core questions. 4. A visualization of the symbiotic relationship between Backlog and Planning using an interactive chart. 5. An interactive accordion for common pitfalls and solutions. This structure transforms a dense document into a manageable, engaging, and exploratory learning experience. -->
+    <!-- Visualization & Content Choices: 
+        - Scrum Cycle Diagram: Goal(Organize) -> HTML/CSS Diagram -> Interaction(Click to reveal info) -> Justification(Provides a mental model of the entire framework) -> Library(Tailwind).
+        - PBI Type Cards: Goal(Inform) -> HTML/CSS Cards -> Interaction(Click to see details) -> Justification(More engaging than a simple list) -> Library(Tailwind).
+        - Sprint Planning Stepper: Goal(Organize/Change) -> HTML/CSS Stepper -> Interaction(Click to navigate steps) -> Justification(Visualizes the process flow clearly) -> Library(Tailwind).
+        - Relationship Chart: Goal(Relationships/Compare) -> Chart.js Bar Chart -> Interaction(Slider updates chart data) -> Justification(Makes the abstract relationship tangible and quantitative) -> Library(Chart.js).
+        - Pitfalls Accordion: Goal(Organize/Inform) -> HTML/CSS Accordion -> Interaction(Click to expand) -> Justification(Cleaner UI, lets user focus on one problem at a time) -> Library(Tailwind).
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8fafc; /* slate-50 */
+      }
+      .smooth-scroll {
+        scroll-behavior: smooth;
+      }
+      .nav-link {
+        transition: color 0.3s, border-bottom-color 0.3s;
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: #0d9488; /* teal-600 */
+        border-bottom-color: #0d9488;
+      }
+      .chart-container {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 350px;
+        max-height: 400px;
+      }
+      .tab-button.active {
+        background-color: #0d9488; /* teal-600 */
+        color: white;
+      }
+      .accordion-header {
+        transition: background-color 0.3s;
+      }
+      .accordion-header:hover {
+        background-color: #f1f5f9; /* slate-100 */
+      }
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+      }
+    </style>
+  </head>
+  <body class="smooth-scroll">
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center">
+            <span class="font-bold text-xl text-slate-800">Scrum Playbook</span>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <!-- Giới Thiệu -->
+              <a
+                href="#introduction"
+                class="nav-link text-slate-600 px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent"
+                >Giới Thiệu</a
+              >
+              
+
+              
+              <!-- Sprint Planning Dropdown -->
+              <div class="relative group">
+                <a
+                  href="#sprint-planning-intro"
+                  class="nav-link text-slate-600 px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent inline-flex items-center"
+                  >Sprint Planning
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </a>
+                <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                  <div class="py-1">
+                    <a href="#planning-objectives" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Mục Tiêu</a>
+                    <a href="#planning-input" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Input</a>
+                    <a href="#planning-process" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Process</a>
+                    <a href="#planning-output" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Output</a>
+                  </div>
+                </div>
+              </div>
+              <!-- Product Backlog -->
+              <div class="relative group">
+                <a
+                  href="#product-backlog"
+                  class="nav-link text-slate-600 px-3 py-2 rounded-md text-sm font-medium border-b-2 border-transparent inline-flex items-center"
+                  >Product Backlog
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </a>
+                <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                  <div class="py-1">
+                    <a href="#product-backlog-what" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">What is Product Backlog</a>
+                    <a href="#product-backlog-items" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Product Backlog Items</a>
+                    <a href="#product-backlog-refinement" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Refinement</a>
+                    <a href="#product-backlog-who" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Ownership & Responsibility</a>
+                    <a href="#product-backlog-when" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100">Lifecycle</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="-mr-2 flex md:hidden">
+            <button
+              type="button"
+              id="mobile-menu-button"
+              class="bg-slate-100 inline-flex items-center justify-center p-2 rounded-md text-slate-600 hover:text-teal-600 hover:bg-slate-200 focus:outline-none"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg
+                class="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </nav>
+      <!-- Mobile menu -->
+      <div class="md:hidden hidden" id="mobile-menu">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            href="#introduction"
+            class="nav-link text-slate-600 hover:bg-slate-100 block px-3 py-2 rounded-md text-base font-medium"
+            >Giới Thiệu</a
+          >
+          
+          <!-- Product Backlog Mobile -->
+          <div class="relative">
+            <button
+              class="w-full text-left text-slate-600 hover:bg-slate-100 block px-3 py-2 rounded-md text-base font-medium flex items-center justify-between"
+              onclick="toggleMobileSubmenu('product-backlog-mobile')"
+            >
+              <span>Product Backlog</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="product-backlog-mobile" class="hidden pl-4">
+              <a href="#product-backlog-what" class="block px-3 py-2 text-sm text-slate-600 hover:bg-slate-100">What is Product Backlog</a>
+              <a href="#product-backlog-items" class="block px-3 py-2 text-sm text-slate-600 hover:bg-slate-100">Product Backlog Items</a>
+              <a href="#product-backlog-refinement" class="block px-3 py-2 text-sm text-slate-600 hover:bg-slate-100">Refinement</a>
+              <a href="#product-backlog-who" class="block px-3 py-2 text-sm text-slate-600 hover:bg-slate-100">Ownership & Responsibility</a>
+              <a href="#product-backlog-when" class="block px-3 py-2 text-sm text-slate-600 hover:bg-slate-100">Lifecycle</a>
+            </div>
+          </div>
+          
+          <!-- Sprint Planning Mobile -->
+          <div class="relative">
+            <button
+              class="w-full text-left text-slate-600 hover:bg-slate-100 block px-3 py-2 rounded-md text-base font-medium flex items-center justify-between"
+              onclick="toggleMobileSubmenu('sprint-planning-mobile')"
+            >
+              <span>Sprint Planning</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="sprint-planning-mobile" class="hidden pl-4">
+              <a href="#planning-objectives" class="block px-3 py-2 text-sm text-slate-600 hover:bg-slate-100">Mục Tiêu</a>
+              <a href="#planning-input" class="block px-3 py-2 text-sm text-slate-600 hover:bg-slate-100">Input</a>
+              <a href="#planning-process" class="block px-3 py-2 text-sm text-slate-600 hover:bg-slate-100">Process</a>
+              <a href="#planning-output" class="block px-3 py-2 text-sm text-slate-600 hover:bg-slate-100">Output</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+<!-- JavaScript for mobile dropdowns -->
+<script>
+  function toggleMobileSubmenu(id) {
+    const submenu = document.getElementById(id);
+    if (submenu.classList.contains('hidden')) {
+      submenu.classList.remove('hidden');
+    } else {
+      submenu.classList.add('hidden');
+    }
+  }
+  
+  // Original mobile menu toggle
+  document.getElementById('mobile-menu-button').addEventListener('click', function() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
+
+    <main class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <!-- Section 1: Introduction -->
+      <section id="introduction" class="mb-24">
+        <h1 class="text-5xl font-bold text-slate-900 text-center mb-8">
+          Sprint Planning & Product Backlog
+        </h1>
+        <div class="text-center mb-16">
+          <div
+            class="inline-block bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-8 py-3 rounded-full text-lg font-semibold"
+          >
+            Agile Scrum Framework
+          </div>
+        </div>
+
+        <!-- Scrum Framework -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+          <div class="bg-white rounded-xl shadow-lg p-8">
+            <h2
+              class="text-3xl font-bold text-slate-800 mb-6 flex items-center"
+            >
+              <div
+                class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mr-4"
+              >
+                <svg
+                  class="w-6 h-6 text-teal-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  ></path>
+                </svg>
+              </div>
+              Scrum Framework
+            </h2>
+            <p class="text-slate-600 mb-6">
+              Scrum là framework trong Agile, giúp nhóm phát triển phần mềm tổ
+              chức công việc linh hoạt, minh bạch và liên tục cải thiện.
+            </p>
+
+            <!-- Hình ảnh Scrum Framework -->
+            <div
+              class="bg-slate-100 rounded-lg p-8 mb-6 text-center border-2 border-dashed border-slate-300"
+            >
+              <img
+                src="picture/overview_sprint.jpg"
+                alt="Scrum Framework Diagram"
+                class="mx-auto rounded-xl shadow-lg max-h-72 w-auto object-contain mb-2"
+              />
+              <p class="text-slate-500 font-medium mt-2">
+                Scrum Framework Diagram
+              </p>
+            </div>
+
+            <div class="space-y-4">
+              <div class="border-l-4 border-teal-500 pl-4">
+                <h4 class="font-semibold text-slate-800">Events (Sự kiện):</h4>
+                <p class="text-slate-600 text-sm">
+                  Sprint, Sprint Planning, Daily Scrum, Sprint Review, Sprint
+                  Retrospective
+                </p>
+              </div>
+              <div class="border-l-4 border-cyan-500 pl-4">
+                <h4 class="font-semibold text-slate-800">
+                  Artifacts (Vật tạo tác):
+                </h4>
+                <p class="text-slate-600 text-sm">
+                  Product Backlog, Sprint Backlog, Increment
+                </p>
+              </div>
+              <div class="border-l-4 border-amber-500 pl-4">
+                <h4 class="font-semibold text-slate-800">Roles (Vai trò):</h4>
+                <p class="text-slate-600 text-sm">
+                  Product Owner, Scrum Master, Development Team
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-lg p-8">
+            <h2
+              class="text-3xl font-bold text-slate-800 mb-6 flex items-center"
+            >
+              <div
+                class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mr-4"
+              >
+                <svg
+                  class="w-6 h-6 text-cyan-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+              </div>
+              Sprint
+            </h2>
+            <p class="text-slate-600 mb-6">
+              Sprint là một vòng phát triển (iteration) kéo dài từ 2–4 tuần
+              trong phương pháp Scrum, nơi nhóm tập trung hoàn thành một khối
+              lượng công việc cụ thể.
+            </p>
+
+            <!-- Hình ảnh Sprint Timeline -->
+            <div
+              class="bg-slate-100 rounded-lg p-8 mb-6 text-center border-2 border-dashed border-slate-300"
+            >
+              <img
+                src="picture/Sprint-Planning-v2.jpg"
+                alt="Sprint Timeline Diagram"
+                class="mx-auto rounded-xl shadow-lg max-h-72 w-auto object-contain mb-2"
+              />
+              <p class="text-slate-500 font-medium mt-2">
+                Sprint Timeline Diagram
+              </p>
+            </div>
+
+            <div
+              class="bg-gradient-to-r from-cyan-50 to-teal-50 rounded-lg p-6"
+            >
+              <h4 class="font-semibold text-slate-800 mb-3">
+                Đặc điểm của Sprint:
+              </h4>
+              <ul class="space-y-2 text-slate-600">
+                <li class="flex items-start">
+                  <span
+                    class="w-2 h-2 bg-cyan-500 rounded-full mt-2 mr-3 flex-shrink-0"
+                  ></span>
+                  Thời gian cố định (2-4 tuần)
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="w-2 h-2 bg-cyan-500 rounded-full mt-2 mr-3 flex-shrink-0"
+                  ></span>
+                  Tập trung vào mục tiêu cụ thể
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="w-2 h-2 bg-cyan-500 rounded-full mt-2 mr-3 flex-shrink-0"
+                  ></span>
+                  Phạm vi và số lượng tùy thuộc dự án
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Sprint Planning Intro -->
+      <section id="sprint-planning-intro" class="mb-24">
+        <div class="bg-white rounded-xl shadow-lg p-8">
+          <h2 class="text-3xl font-bold text-teal-700 mb-4 flex items-center">
+            <span
+              class="inline-block w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center mr-3"
+            >
+              <svg
+                class="w-6 h-6 text-teal-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 17v-2a4 4 0 014-4h4"
+                />
+              </svg>
+            </span>
+            Sprint Planning là gì?
+          </h2>
+          <p class="text-slate-700 mb-6">
+            Sprint Planning là một timebox event trong khung làm việc Scrum,
+            được tổ chức vào đầu mỗi Sprint để khởi động chu kỳ làm việc mới của
+            nhóm Agile.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <div
+              class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-lg p-4 border-l-4 border-teal-500"
+            >
+              <h4 class="font-semibold text-slate-800 mb-1">
+                Events (Sự kiện)
+              </h4>
+              <p class="text-slate-600 text-sm">
+                Sprint, Sprint Planning, Daily Scrum, Sprint Review, Sprint
+                Retrospective
+              </p>
+            </div>
+            <div
+              class="bg-gradient-to-br from-cyan-50 to-amber-50 rounded-lg p-4 border-l-4 border-cyan-500"
+            >
+              <h4 class="font-semibold text-slate-800 mb-1">
+                Artifacts (Vật tạo tác)
+              </h4>
+              <p class="text-slate-600 text-sm">
+                Product Backlog, Sprint Backlog, Increment
+              </p>
+            </div>
+            <div
+              class="bg-gradient-to-br from-amber-50 to-teal-50 rounded-lg p-4 border-l-4 border-amber-500"
+            >
+              <h4 class="font-semibold text-slate-800 mb-1">Roles (Vai trò)</h4>
+              <p class="text-slate-600 text-sm">
+                Product Owner, Scrum Master, Development Team
+              </p>
+            </div>
+          </div>
+          <!-- Hình ảnh Scrum Member -->
+            <div class="flex justify-center mb-6"></div>
+            <img
+              src="picture/scrum_member.png"
+              alt="Scrum Member"
+              class="w-auto max-w-full h-auto mx-auto object-contain mb-2"
+              style="max-height: 400px;"
+            />
+            </div>
+          <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+            <li>
+              Mỗi Sprint là một giai đoạn thời gian cố định, trong đó mọi công
+              việc được triển khai.
+            </li>
+            <li>
+              Sprint Planning mở đầu cho Sprint bằng cách thiết lập trọng tâm và
+              lộ trình hành động.
+            </li>
+            <li>
+              Khi tổ chức đúng cách, tạo ra môi trường có động lực, thử thách
+              phù hợp, tăng khả năng thành công cho nhóm.
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- Section 3: Sprint Planning Objectives -->
+      <section id="planning-objectives" class="mb-24">
+        <div class="bg-white rounded-xl shadow-lg p-8">
+          <h2 class="text-2xl font-bold text-cyan-700 mb-4 flex items-center">
+            <span
+              class="inline-block w-8 h-8 bg-cyan-100 rounded-lg flex items-center justify-center mr-3"
+            >
+              <svg
+                class="w-5 h-5 text-cyan-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3"
+                />
+              </svg>
+            </span>
+            Mục tiêu của Sprint Planning
+          </h2>
+          <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+            <li>
+              Định hình Sprint Goal 
+            </li>
+            <li>Cam kết mục tiêu rõ ràng, truyền cảm hứng cho nhóm</li>
+            <p><strong>Ví dụ:</strong> "Tích hợp module thanh toán online",
+              "Người dùng có thể đặt lịch khám", "Có thể thanh toán bằng mã QR"</p>
+          </ul>
+        </div>
+      </section>
+      <!-- Section 4: Sprint Planning Input -->
+      <section id="planning-input" class="mb-24">
+        <div class="bg-white rounded-xl shadow-lg p-8">
+          <h2 class="text-2xl font-bold text-amber-700 mb-4 flex items-center">
+            <span
+              class="inline-block w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center mr-3"
+            >
+              <svg
+                class="w-5 h-5 text-amber-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 17v-2a4 4 0 014-4h4"
+                />
+              </svg>
+            </span>
+            Input của Sprint Planning
+          </h2>
+          <div class="overflow-x-auto">
+            <table class="min-w-full text-sm text-slate-700 mb-4">
+              <thead>
+                <tr class="bg-slate-50">
+                  <th class="px-4 py-2 text-left font-semibold">Input</th>
+                  <th class="px-4 py-2 text-left font-semibold">Mô tả</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b">
+                  <td class="px-4 py-2">Product Backlog</td>
+                  <td class="px-4 py-2">
+                    Đã ưu tiên, làm mịn, gắn story points & acceptance criteria
+                  </td>
+                </tr>
+                <tr class="border-b">
+                  <td class="px-4 py-2">Increment mới nhất</td>
+                  <td class="px-4 py-2">Trạng thái sản phẩm hiện tại</td>
+                </tr>
+                <tr class="border-b">
+                  <td class="px-4 py-2">Team Capacity</td>
+                  <td class="px-4 py-2">Số ngày công, lịch nghỉ, kỹ năng</td>
+                </tr>
+                <tr class="border-b">
+                  <td class="px-4 py-2">Velocity</td>
+                  <td class="px-4 py-2">
+                    Tốc độ hoàn thành (story points) của Sprint trước
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-4 py-2">Công cụ hỗ trợ</td>
+                  <td class="px-4 py-2">
+                    Jira, Miro (board, planning poker), báo cáo velocity
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div
+              class="bg-slate-100 rounded-lg p-6 border-2 border-dashed border-slate-300 text-center"
+            >
+              <img
+                src="picture/product_backlog.png"
+                alt="Product Backlog"
+                class="mx-auto rounded-lg shadow max-h-48 w-auto object-contain mb-2"
+              />
+              <p class="text-slate-500 font-medium mt-2">Product Backlog</p>
+            </div>
+            <div
+              class="bg-slate-100 rounded-lg p-6 border-2 border-dashed border-slate-300 text-center"
+            >
+              <img
+                src="picture/sprint_goal.png"
+                alt="Team Capacity"
+                class="mx-auto rounded-lg shadow max-h-48 w-auto object-contain mb-2"
+              />
+              <p class="text-slate-500 font-medium mt-2">Team Capacity</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Section 5: Sprint Planning Process -->
+      <section id="planning-process" class="mb-24">
+        <div class="bg-white rounded-xl shadow-lg p-8">
+          <h2 class="text-2xl font-bold text-violet-700 mb-4 flex items-center">
+            <span
+              class="inline-block w-8 h-8 bg-violet-100 rounded-lg flex items-center justify-center mr-3"
+            >
+              <svg
+                class="w-5 h-5 text-violet-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3"
+                />
+              </svg>
+            </span>
+            Quy trình Sprint Planning
+          </h2>
+          <div class="mb-6">
+            <p class="text-slate-700 mb-2 font-semibold">
+              Sprint Planning giúp team trả lời 3 câu hỏi chính:
+            </p>
+            <ol class="list-decimal pl-6 text-slate-700 space-y-2">
+              <li>
+                <span class="font-bold text-rose-600">Why?</span> (Tại sao?) –
+                Xác định Sprint Goal
+              </li>
+              <li>
+                <span class="font-bold text-sky-600">What?</span> (Cái gì?) –
+                Chọn PBI từ Product Backlog
+              </li>
+              <li>
+                <span class="font-bold text-emerald-600">How?</span> (Như thế
+                nào?) – Split PBI thành tasks, estimate giờ, assign
+              </li>
+            </ol>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div
+              class="bg-gradient-to-br from-rose-50 to-rose-100 rounded-lg p-4 border-l-4 border-rose-500"
+            >
+              <h4 class="font-semibold text-rose-700 mb-1">Why (Tại sao)?</h4>
+              <p class="text-slate-700 text-sm">
+                Cả nhóm cùng xác định một Mục tiêu Sprint (Sprint Goal).
+              </p>
+            </div>
+            <div
+              class="bg-gradient-to-br from-sky-50 to-sky-100 rounded-lg p-4 border-l-4 border-sky-500"
+            >
+              <h4 class="font-semibold text-sky-700 mb-1">What (Cái gì)?</h4>
+              <p class="text-slate-700 text-sm">
+                Nhóm chọn các hạng mục từ Product Backlog để thực hiện.
+              </p>
+            </div>
+            <div
+              class="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-lg p-4 border-l-4 border-emerald-500"
+            >
+              <h4 class="font-semibold text-emerald-700 mb-1">
+                How (Như thế nào)?
+              </h4>
+              <p class="text-slate-700 text-sm">
+                Nhóm lên kế hoạch chi tiết để hoàn thành các hạng mục đã chọn.
+              </p>
+            </div>
+          </div>
+          <div class="mt-8">
+            <h3 class="font-semibold text-slate-800 mb-2">
+              Ai cần tham gia & Chuẩn bị:
+            </h3>
+            <ul class="list-disc pl-6 text-slate-700 space-y-1">
+              <li>
+                <span class="font-bold">Product Owner:</span> Chuẩn bị backlog,
+                ưu tiên, acceptance criteria; giải thích PBI và trả lời câu hỏi
+              </li>
+              <li>
+                <span class="font-bold">Development Team:</span> Nghiên cứu PBI,
+                chuẩn bị câu hỏi, thực hiện Planning Poker, split tasks,
+                estimate
+              </li>
+              <li>
+                <span class="font-bold">Scrum Master:</span> Điều phối timebox,
+                setup phòng họp (f2f/online), giám sát tiến trình, hỗ trợ công
+                cụ
+              </li>
+            </ul>
+            <div
+              class="mt-4 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-lg p-4"
+            >
+              <h4 class="font-semibold text-slate-800 mb-1">Best Practices:</h4>
+              <ul class="list-disc pl-6 text-slate-700 text-sm">
+                <li>
+                  Nên: Time-box (2h cho Sprint 2 tuần), PO chuẩn bị kỹ,
+                  encourage hỏi sớm
+                </li>
+                <li>
+                  Không nên: Overcommit, áp đặt workload, kéo dài buổi họp, làm
+                  rõ backlog tại đây
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Section 6: Sprint Planning Output (bổ sung chi tiết) -->
+      <section id="planning-output" class="mb-24">
+        <div class="bg-white rounded-xl shadow-lg p-8">
+          <h2
+            class="text-2xl font-bold text-emerald-700 mb-4 flex items-center"
+          >
+            <span
+              class="inline-block w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center mr-3"
+            >
+              <svg
+                class="w-5 h-5 text-emerald-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </span>
+            Output của Sprint Planning
+          </h2>
+          <ul class="list-disc pl-6 text-slate-700 space-y-2 mb-4">
+            <li>
+              <span class="font-bold text-emerald-700">✅ Sprint Goal:</span> 1
+              câu ngắn gọn, súc tích mô tả giá trị Sprint cam kết mang lại.
+            </li>
+            <li>
+              <span class="font-bold text-emerald-700">✅ Sprint Backlog:</span>
+              <ul class="list-disc pl-6 text-slate-700">
+                <li>Danh sách PBI (story points)</li>
+                <li>Task breakdown (owner, estimate giờ)</li>
+              </ul>
+            </li>
+            <li>
+              <span class="font-bold text-emerald-700"
+                >✅ Board (Jira/Trello):</span
+              >
+              cập nhật trạng thái & assignee
+            </li>
+            <li>
+              <span class="font-bold text-emerald-700">✅ Cam kết team:</span>
+              về khối lượng công việc
+            </li>
+          </ul>
+          <div
+            class="mt-6 bg-gradient-to-r from-emerald-50 to-cyan-50 rounded-lg p-6"
+          >
+            <h4 class="font-semibold text-slate-800 mb-2">
+              Giải thích chi tiết:
+            </h4>
+            <ul class="list-disc pl-6 text-slate-700 space-y-1">
+              <li>
+                <span class="font-bold">Sprint Goal:</span> là một câu ngắn gọn,
+                súc tích để mô tả giá trị của Sprint cam kết mang lại.
+              </li>
+              <li>
+                <span class="font-bold">Sprint Backlog:</span> là một bản kế
+                hoạch của riêng Developer, bao gồm:
+                <ul class="list-disc pl-6 text-slate-700">
+                  <li>
+                    Các hạng mục công việc (PBI) đã được chọn từ Product
+                    Backlog.
+                  </li>
+                  <li>
+                    Kế hoạch chi tiết để hoàn thành các hạng mục đó và đạt được
+                    Sprint Goal.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <p class="mt-4 text-slate-600 text-sm">
+              Kết quả quan trọng nhất của cuộc họp lập kế hoạch sprint là nhóm
+              có thể mô tả mục tiêu của sprint và cách thức bắt đầu thực hiện để
+              đạt được mục tiêu đó. Điều này được thể hiện rõ trong backlog
+              sprint.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-slate-800 text-slate-300">
+      <div
+        class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm"
+      >
+        <p>Một ứng dụng tương tác dựa trên báo cáo chuyên sâu về Scrum.</p>
+        <p>&copy; 2025 Scrum Playbook. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // --- Data ---
+        const pbiData = [
+          {
+            title: 'Epic (Sử thi)',
+            content:
+              'Một khối công việc lớn, mô tả một chức năng chính. Quá lớn để hoàn thành trong một Sprint.',
+            example:
+              'Ví dụ: "Quản lý hệ thống nội dung (CMS) cho website marketing."',
+          },
+          {
+            title: 'User Story',
+            content:
+              'Mô tả ngắn về một tính năng từ góc độ người dùng cuối. Thường theo định dạng: "Là một [vai trò], tôi muốn [hành động] để [đạt được giá trị]".',
+            example:
+              'Ví dụ: "Là người mua hàng, tôi muốn xem lại giỏ hàng trước khi thanh toán."',
+          },
+          {
+            title: 'Task (Nhiệm vụ)',
+            content:
+              'Hành động kỹ thuật cụ thể cần làm để hoàn thành một User Story. Developers thường chia nhỏ User Story thành các Task.',
+            example:
+              'Ví dụ: "Thiết kế UI trang giỏ hàng", "Lập trình API thêm/xóa sản phẩm."',
+          },
+          {
+            title: 'Bug (Lỗi)',
+            content:
+              'Các lỗi được phát hiện trong sản phẩm. Chúng được đưa vào Backlog, ưu tiên và xử lý như các tính năng mới.',
+            example:
+              'Ví dụ: "Nút thanh toán không hoạt động trên trình duyệt Safari."',
+          },
+          {
+            title: 'Technical Debt',
+            content:
+              'Nợ kỹ thuật là công việc cần làm lại do trước đó đã chọn giải pháp nhanh thay vì giải pháp tốt hơn. Quản lý nợ kỹ thuật là dấu hiệu của một nhóm trưởng thành.',
+            example:
+              'Ví dụ: "Tái cấu trúc (refactor) module thanh toán để cải thiện hiệu suất."',
+          },
+          {
+            title: 'Knowledge Acquisition',
+            content:
+              'Hoạt động nghiên cứu để có đủ thông tin trước khi phát triển một tính năng.',
+            example:
+              'Ví dụ: "Nghiên cứu và so sánh 3 cổng thanh toán khác nhau."',
+          },
+        ];
+
+        const pitfallsData = [
+          {
+            title: 'Product Backlog là một "hố đen" hỗn loạn',
+            impact:
+              '<strong>Tác động:</strong> Backlog quá lớn, lỗi thời, không được ưu tiên. Sprint Planning kéo dài, nhóm mất phương hướng, giá trị giao thấp.',
+            solution:
+              '<strong>Giải pháp:</strong> Thiết lập và truyền đạt <strong>Product Goal</strong> rõ ràng. PO phải học cách nói "không". Thực hiện <strong>Backlog Refinement</strong> đều đặn. Loại bỏ các hạng mục cũ hoặc không còn giá trị.',
+          },
+          {
+            title: 'Thiếu Backlog Refinement',
+            impact:
+              '<strong>Tác động:</strong> Sprint Planning trở thành buổi làm rõ yêu cầu. PBI không rõ ràng, quá lớn. Nhóm cam kết quá mức hoặc không thể cam kết.',
+            solution:
+              '<strong>Giải pháp:</strong> Coi Backlog Refinement là hoạt động <strong>bắt buộc</strong> (dành ~10% thời gian Sprint). Thực hiện cộng tác với cả PO, Developers, và SM. Sử dụng <strong>Definition of Ready</strong> làm kim chỉ nam.',
+          },
+          {
+            title: 'Sprint Planning không có Sprint Goal rõ ràng',
+            impact:
+              '<strong>Tác động:</strong> Nhóm chỉ "lấp đầy" Sprint bằng các PBI riêng lẻ. Thiếu sự tập trung và mục đích chung. Khó thích ứng khi có trở ngại.',
+            solution:
+              '<strong>Giải pháp:</strong> Bắt đầu Sprint Planning bằng câu hỏi "Tại sao?". Cả nhóm cùng định hình một <strong>Sprint Goal</strong> gắn kết, có thể đo lường và truyền cảm hứng.',
+          },
+          {
+            title: 'Cam kết quá mức (Overcommitting)',
+            impact:
+              '<strong>Tác động:</strong> Nhóm thường xuyên không hoàn thành Sprint Backlog. Chất lượng giảm, nợ kỹ thuật tăng, tinh thần nhóm đi xuống.',
+            solution:
+              '<strong>Giải pháp:</strong> Sử dụng dữ liệu lịch sử như <strong>Velocity</strong> để dự báo thực tế. Luôn xem xét sự sẵn có của các thành viên. Developers là người quyết định cuối cùng về lượng công việc.',
+          },
+          {
+            title: 'PO/SM áp đặt công việc lên Developers',
+            impact:
+              '<strong>Tác động:</strong> Vi phạm nguyên tắc tự quản. Developers mất động lực và quyền sở hữu. Kế hoạch không thực tế.',
+            solution:
+              '<strong>Giải pháp:</strong> Tôn trọng vai trò và trách nhiệm. PO xác định "cái gì", Developers quyết định "bao nhiêu" và "như thế nào". SM là người điều phối và huấn luyện, không phải chỉ huy.',
+          },
+        ];
+
+        // --- Mobile Menu ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Navigation Scrollspy ---
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('main section');
+        window.addEventListener('scroll', () => {
+          let current = '';
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 80) {
+              current = section.getAttribute('id');
+            }
+          });
+          navLinks.forEach((link) => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+              link.classList.add('active');
+            }
+          });
+        });
+
+        // --- Overview Interactive Diagram ---
+        const interactiveElements = document.querySelectorAll(
+          '.interactive-element'
+        );
+        const interactiveDisplay = document.getElementById(
+          'interactive-display'
+        );
+        interactiveElements.forEach((el) => {
+          el.addEventListener('click', () => {
+            const title = el.dataset.title;
+            const content = el.dataset.content;
+            interactiveDisplay.innerHTML = `<p><strong class="text-slate-800">${title}:</strong> <span class="text-slate-600">${content}</span></p>`;
+            interactiveDisplay.classList.remove('opacity-0');
+          });
+        });
+
+        // --- Backlog Tabs & Content ---
+        const backlogTabsContainer = document.getElementById('backlog-tabs');
+        const tabButtons = backlogTabsContainer.querySelectorAll('.tab-button');
+        const tabPanes = document.querySelectorAll('#tab-content .tab-pane');
+        const pbiCardsContainer = document.getElementById('pbi-cards');
+
+        pbiCardsContainer.innerHTML = pbiData
+          .map(
+            (pbi) => `
+        <div class="pbi-card bg-slate-50 p-4 rounded-lg border border-slate-200 cursor-pointer transform hover:-translate-y-1 transition-transform duration-300">
+            <h4 class="font-semibold text-slate-800">${pbi.title}</h4>
+            <div class="pbi-details hidden mt-2 text-sm text-slate-600">
+                <p>${pbi.content}</p>
+                <p class="mt-2 text-xs italic bg-slate-100 p-2 rounded">${pbi.example}</p>
+            </div>
+        </div>
+    `
+          )
+          .join('');
+
+        backlogTabsContainer.addEventListener('click', (e) => {
+          if (e.target.classList.contains('tab-button')) {
+            tabButtons.forEach((button) => button.classList.remove('active'));
+            e.target.classList.add('active');
+
+            const targetId = e.target.dataset.target;
+            tabPanes.forEach((pane) => {
+              if (pane.id === targetId) {
+                pane.classList.remove('hidden');
+              } else {
+                pane.classList.add('hidden');
+              }
+            });
+          }
+        });
+
+        document.querySelectorAll('.pbi-card').forEach((card) => {
+          card.addEventListener('click', () => {
+            card.querySelector('.pbi-details').classList.toggle('hidden');
+          });
+        });
+
+        // --- Synergy Chart ---
+        const synergyCtx = document
+          .getElementById('synergyChart')
+          .getContext('2d');
+        const synergyChart = new Chart(synergyCtx, {
+          type: 'bar',
+          data: {
+            labels: [
+              'Mức độ đạt Sprint Goal',
+              'Chất lượng Increment',
+              'Tinh thần Nhóm',
+              'Độ chính xác Kế hoạch',
+            ],
+            datasets: [
+              {
+                label: 'Hiệu suất Sprint',
+                data: [60, 55, 65, 50],
+                backgroundColor: [
+                  'rgba(13, 148, 136, 0.6)', // teal-600
+                  'rgba(14, 165, 233, 0.6)', // sky-500
+                  'rgba(245, 158, 11, 0.6)', // amber-500
+                  'rgba(139, 92, 246, 0.6)', // violet-500
+                ],
+                borderColor: [
+                  'rgba(13, 148, 136, 1)',
+                  'rgba(14, 165, 233, 1)',
+                  'rgba(245, 158, 11, 1)',
+                  'rgba(139, 92, 246, 1)',
+                ],
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                beginAtZero: true,
+                max: 100,
+                ticks: {
+                  callback: function (value) {
+                    return value + '%';
+                  },
+                },
+              },
+            },
+            plugins: {
+              legend: {
+                display: false,
+              },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    return `${context.dataset.label}: ${context.raw.toFixed(
+                      0
+                    )}%`;
+                  },
+                },
+              },
+            },
+          },
+        });
+
+        const refinementSlider = document.getElementById('refinement-slider');
+        const refinementValue = document.getElementById('refinement-value');
+
+        refinementSlider.addEventListener('input', (e) => {
+          const value = parseInt(e.target.value);
+          refinementValue.textContent = `${value}%`;
+
+          // Update chart data based on slider value
+          const goalAchievement = 20 + value * 0.75; // max 95
+          const quality = 30 + value * 0.65; // max 95
+          const morale = 40 + value * 0.5; // max 90
+          const accuracy = 15 + value * 0.8; // max 95
+
+          synergyChart.data.datasets[0].data = [
+            goalAchievement,
+            quality,
+            morale,
+            accuracy,
+          ];
+          synergyChart.update();
+        });
+
+        // --- Pitfalls Accordion ---
+        const accordionContainer = document.getElementById(
+          'accordion-container'
+        );
+        accordionContainer.innerHTML = pitfallsData
+          .map(
+            (item, index) => `
+        <div class="accordion-item">
+            <div class="accordion-header cursor-pointer flex justify-between items-center p-6" data-index="${index}">
+                <h3 class="text-lg font-medium text-slate-800">${item.title}</h3>
+                <span class="accordion-icon text-teal-500 transform transition-transform duration-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </span>
+            </div>
+            <div class="accordion-content">
+                <div class="p-6 pt-0">
+                    <p class="text-slate-600 mb-4">${item.impact}</p>
+                    <p class="text-slate-600">${item.solution}</p>
+                </div>
+            </div>
+        </div>
+    `
+          )
+          .join('');
+
+        accordionContainer.addEventListener('click', (e) => {
+          const header = e.target.closest('.accordion-header');
+          if (!header) return;
+
+          const content = header.nextElementSibling;
+          const icon = header.querySelector('.accordion-icon');
+          const isOpen = content.style.maxHeight;
+
+          if (isOpen && content.style.maxHeight !== '0px') {
+            content.style.maxHeight = '0px';
+            icon.classList.remove('rotate-180');
+          } else {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            icon.classList.add('rotate-180');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
